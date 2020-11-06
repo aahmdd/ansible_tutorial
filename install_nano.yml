@@ -1,0 +1,18 @@
+--- 
+- 
+  become: true
+  hosts: all
+  tasks: 
+  
+  - name: update cache 
+    apt:
+      update_cache: yes
+  - name: install nano 
+    apt: 
+       name: nano
+       state: latest
+
+  - name: install qemu-gest-agent
+    apt:
+      name: qemu-guest-agent
+      state: latest
