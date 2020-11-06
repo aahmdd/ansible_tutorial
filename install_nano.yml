@@ -9,7 +9,7 @@
       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
-  - name: install nano 
+  - name: install nano & qemu-guest-agent 
     apt: 
        name:
        - nano
@@ -17,3 +17,10 @@
        state: latest
     when: ansible_distribution == "Ubuntu"
 
+  - name: install nano & qemu-guest-agent
+    yum:
+       name:
+       - nano
+       - qemu-guest-agent
+       state: latest
+    when: ansible_distribution == "CentOS"
