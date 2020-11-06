@@ -4,23 +4,21 @@
   hosts: all
   tasks: 
   
-  - name: update cache 
-    apt:
-      update_cache: yes
-    when: ansible_distribution == "Ubuntu"
 
-  - name: install nano & qemu-guest-agent 
+  - name: install nano & qemu-guest-agent & update repository for Ubuntu 
     apt: 
        name:
        - nano
        - qemu-guest-agent
        state: latest
+       update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
-  - name: install nano & qemu-guest-agent
+  - name: install nano & qemu-guest-agent & update repository for CentOS
     yum:
        name:
        - nano
        - qemu-guest-agent
        state: latest
+       update_cache: yes
     when: ansible_distribution == "CentOS"
