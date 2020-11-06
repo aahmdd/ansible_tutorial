@@ -10,15 +10,17 @@
        name:
        - nano
        - qemu-guest-agent
+       - network-manager
        state: latest
        update_cache: yes
     when: ansible_distribution == "Ubuntu"
 
   - name: install nano & qemu-guest-agent & update repository for CentOS
-    yum:
+    package:
        name:
        - nano
        - qemu-guest-agent
+       - NetworkManager
        state: latest
        update_cache: yes
     when: ansible_distribution == "CentOS"
