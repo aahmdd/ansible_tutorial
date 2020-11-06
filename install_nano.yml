@@ -11,12 +11,9 @@
 
   - name: install nano 
     apt: 
-       name: nano
+       name:
+       - nano
+       - qemu-guest-agent
        state: latest
     when: ansible_distribution == "Ubuntu"
 
-  - name: install qemu-gest-agent
-    apt:
-      name: qemu-guest-agent
-      state: latest
-    when: ansible_distribution == "Ubuntu"
